@@ -1,0 +1,4 @@
+<% @restaurants.each do |restaurant| %>
+  <%= link_to "#{restaurant.name}", restaurant_path(restaurant) %>
+  <%= image_tag restaurant.image_url %>
+<% end %>
