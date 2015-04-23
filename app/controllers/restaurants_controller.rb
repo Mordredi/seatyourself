@@ -23,10 +23,12 @@ class RestaurantsController < ApplicationController
   end
 
   def edit
+    @user = current_user
     @restaurant = Restaurant.find(params[:id])
   end
 
   def update
+    @user = current_user
     @restaurant = Restaurant.find(params[:id])
     if @restaurant.update_attributes(restaurant_params)
       redirect_to restaurant_url(@restaurant)
