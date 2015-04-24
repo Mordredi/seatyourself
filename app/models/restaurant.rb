@@ -3,15 +3,12 @@ class Restaurant < ActiveRecord::Base
   has_many :reservations
   has_many :users, :through => :reservations
 
-  validates :name, :seats, :open_time, :close_time, :presence => true
+  validates :name, :seats, :open, :close, :presence => true
 
   private
 
-  def check_capacity
-    self.reservations.num_of_seats.sum
+  def hours_of_operation
+    self.close - self.open
   end
 
-  def self.hours_of_operation
-    self.close_time - self.open_time
-  end
 end
