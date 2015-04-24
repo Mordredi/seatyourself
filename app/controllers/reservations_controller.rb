@@ -15,7 +15,7 @@ class ReservationsController < ApplicationController
     if @reservation.save
       redirect_to restaurant_url(@restaurant)
     else
-      render 'new'
+      render 'restaurants/show'
     end
   end
 

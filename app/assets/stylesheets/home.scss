@@ -1,3 +1,11 @@
-// Place all the styles related to the Home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.jumbotron {
+  display: flex;
+  align-items: flex-end;
+  padding: 2em 5em;
+  box-sizing: border-box;
+  background: url("http://www.cervo.ch/media/archive1/mediendownloads/restaurant/restaurant_dinner02.jpg") no-repeat;
+  background-size: cover;
+  height: 70vh;
+  width: 100vw;
+  box-shadow: 0 2px 1px #777;
+}

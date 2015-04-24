@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+
+  before_filter :ensure_logged_in, :only => [:create, :edit, :destroy, :update, :show]
   
   def new
     @user = User.new
@@ -7,7 +9,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to edit_user_url(@user)
+      redirect_to login_url
     else
       render 'new'
     end
@@ -15,6 +17,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+
+    @restaurants = @user.restaurants
+    @reservations = @user.reservations
   end
 
   def edit

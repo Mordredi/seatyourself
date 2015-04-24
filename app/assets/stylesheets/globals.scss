@@ -1,0 +1,28 @@
+body {
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none; 
+}
+
+h2 {
+  font-size: 2.5em;
+  color: $primary-color;
+  margin-top: .5em;
+  text-shadow: 0 1px 1px #777;
+}
+
+.user-wrapper {
+  display: flex;
+  margin-top: 2em;
+}
+
+.sidebar {
+  width: 25vw;
+  text-align: center;
+}
+.article {
+  width: 75vw;
+  text-align: center;
+}

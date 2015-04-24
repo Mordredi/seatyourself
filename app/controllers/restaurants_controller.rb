@@ -10,6 +10,7 @@ class RestaurantsController < ApplicationController
     if current_user
       @reservation = @restaurant.reservations.build
     end
+    
   end
 
   def new

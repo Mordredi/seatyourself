@@ -1,0 +1,46 @@
+.btn {
+  font-size: 1.1em;
+  display: inline-block;
+  min-width: 12vw;
+  text-align: center;
+  padding: .5em 1em;
+  color: $dark-primary-color;
+  &:focus, &:active {
+      outline: none;
+    }
+}
+
+.btn-signup {
+  text-shadow: 0 1px 1px black;
+  color: white;
+  background-color: $accent-color;
+  box-shadow: 0 2px 4px #777;
+  &:hover {
+    background-color: $dark-accent-color;
+    box-shadow: 0 3px 4px #777;
+  }
+}
+
+.btn-cta, .btn-login {
+  font-size: 1.5em;
+  color: white;
+  background: $primary-color;
+  &:hover {
+    background-color: $dark-primary-color;
+  }
+}
+
+.btn-login {
+  margin-top: .5em;
+  box-shadow: 0 2px 4px #777;
+  &:hover {
+    box-shadow: 0 3px 4px #777;
+  };
+  &:active {
+    box-shadow: none;
+  }
+}
+
+button {
+  border: none;
+}
