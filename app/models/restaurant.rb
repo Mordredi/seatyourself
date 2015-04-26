@@ -5,10 +5,8 @@ class Restaurant < ActiveRecord::Base
 
   validates :name, :seats, :open, :close, :presence => true
 
-  private
-
-  def hours_of_operation
-    self.close - self.open
+  def open_hours
+    (open...close).to_a
   end
 
 end

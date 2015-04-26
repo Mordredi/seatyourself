@@ -5,6 +5,7 @@
 @import 'forms.scss';
 @import 'home.scss';
 @import 'users.scss';
+@import 'restaurants.scss';
 
 
 body {
@@ -17,16 +18,25 @@ a {
 }
 
 header {
+  position: fixed;
+  top:0;
+  width: 100vw;
   height: 10vh;
   display: flex;
   align-items: center;
   background: #fff;
   justify-content: space-between;
-  padding: 0 2em;
+  padding-left: 2em;
+  padding-right: 2em;
   box-shadow: 0 1px 1px #ccc;
 }
 
+nav {
+  margin-right: 2em;
+}
+
 main {
+  margin-top:10vh;
   display: flex;
   justify-content: center;
   flex-direction: column;

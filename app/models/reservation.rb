@@ -4,9 +4,15 @@ class Reservation < ActiveRecord::Base
 
   validates :time, :num_of_seats, :presence => true
 
-  before_create :check_capacity
+  # before_create :check_capacity
 
-  private
+  # private
+
+  def check_reservation_time
+    rtime = Reservation.where(self.time)
+    rtime
+  end
+
   def check_capacity
     counter = 0
     restaurant = Restaurant.find(self.restaurant.id)

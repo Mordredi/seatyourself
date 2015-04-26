@@ -1,12 +1,19 @@
-<div class="jumbotron" style='background: url(<%= @restaurant.image_url %>)'>
+<div class="jumbotron jumbotron-restaurant" style='background: url(<%= @restaurant.image_url %>)'>
 
 <% if current_user %>
   <%= form_for([@restaurant, @reservation], :html => {:class => 'reservation'}) do |f| %>
     <%= f.label :num_of_seats %>
     <%= f.number_field :num_of_seats %>
-    <%= f.label :time %>
-    <%= f.date_field :time %>
-    <%= f.time_field :time %>
+    <%= f.label :date %>
+    <%= f.date_field :date %>
+    <div class="times">
+      <% @restaurant.open_hours.each do |h| %>
+        <%= f.radio_button(:time, h, class: "hidden") %>
+        <%= f.label "time_#{h}", 
+          m_to_st(h), 
+        class: "reserve" %>
+      <% end %>
+    </div>
     <%= f.button "Reserve Now", :class => 'btn btn-cta' %>
   <% end %>
 <% else %>
@@ -15,8 +22,14 @@
 
 </div>
 
-<%= @restaurant.name %>
-<%= @restaurant.address %>
-<%= @restaurant.open_time %>
-<%= @restaurant.close_time %>
+<h2><%= @restaurant.name %></h2>
+<p><%= @restaurant.address %></p>
+<p>Open: <%= m_to_st(@restaurant.open) %></p>
+<p>Close: <%= m_to_st(@restaurant.close) %></p>
 <%= @restaurant.description %>
+
+<% if current_user.id == @restaurant.user_id %>
+  <%= link_to "Edit Restaurant", edit_restaurant_path(@restaurant), :class => 'btn' %>
+  <%= link_to "Delete Restaurant", restaurant_path(@restaurant), :method => :delete, :class => 'btn' %>
+<% end %>
+

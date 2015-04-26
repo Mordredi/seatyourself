@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150424201135) do
+ActiveRecord::Schema.define(version: 20150425181513) do
 
   create_table "reservations", force: :cascade do |t|
     t.integer  "user_id"
@@ -19,7 +19,8 @@ ActiveRecord::Schema.define(version: 20150424201135) do
     t.integer  "num_of_seats"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.datetime "time"
+    t.integer  "time"
+    t.datetime "date"
   end
 
   add_index "reservations", ["restaurant_id"], name: "index_reservations_on_restaurant_id"
@@ -32,11 +33,11 @@ ActiveRecord::Schema.define(version: 20150424201135) do
     t.string   "address"
     t.string   "image_url"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.string   "website"
-    t.integer  "open"
-    t.integer  "close"
+    t.integer  "open",        default: 11
+    t.integer  "close",       default: 24
   end
 
   add_index "restaurants", ["user_id"], name: "index_restaurants_on_user_id"

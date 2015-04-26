@@ -1,5 +1,7 @@
 class RestaurantsController < ApplicationController
 
+  before_filter :restaurant_owner, :only => [:edit, :update, :delete]
+
   def index
     @restaurants = Restaurant.all
   end
@@ -51,7 +53,7 @@ class RestaurantsController < ApplicationController
   private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :seats, :open_time, :close_time, :address, :image_url, :description)
+    params.require(:restaurant).permit(:name, :seats, :open, :close, :address, :image_url, :description, :website)
   end
 
 end

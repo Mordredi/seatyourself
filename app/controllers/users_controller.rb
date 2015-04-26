@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_filter :ensure_logged_in, :only => [:create, :edit, :destroy, :update, :show]
+  before_filter :user_owner, :only => [:create, :edit, :destroy, :update, :show]
   
   def new
     @user = User.new

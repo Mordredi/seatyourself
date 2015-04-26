@@ -13,3 +13,7 @@
  *= require_self
  *= require style
  */
+
+.hidden { 
+  display: none;
+}
