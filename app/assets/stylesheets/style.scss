@@ -43,15 +43,22 @@ main {
 }
 
 .flash {
+  position: absolute;
+  top: 10vh;
+  right: 35vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   color: white;
   width: 30vw;
   height: 10vh;
 }
 
 .flash-notice {
-  background: green;
+  background: hsla(117, 100%, 36%, .7);
 }
 
 .flash-error {
-  background: red;
+  background: hsla(0, 100%, 50%, .7);
 }
