@@ -1,7 +1,7 @@
 <div class="jumbotron jumbotron-restaurant" style='background: url(<%= @restaurant.image_url %>)'>
 
 <% if current_user %>
-  <%= form_for([@restaurant, @reservation], :html => {:class => 'reservation', :id => 'reservation'}) do |f| %>
+  <%= form_for([@restaurant, @reservation], :html => {:class => 'reservation'}) do |f| %>
     <%= f.label :num_of_seats %>
     <%= f.number_field :num_of_seats, in: 1..50, value: 1 %>
     <%= f.label :date %>
@@ -33,5 +33,23 @@
   <% if current_user.id == @restaurant.user_id %>
     <%= link_to "Edit Restaurant", edit_restaurant_path(@restaurant), :class => 'btn' %>
     <%= link_to "Delete Restaurant", restaurant_path(@restaurant), :method => :delete, :class => 'btn' %>
+  <% end %>
+  <h2>Reviews</h2>
+
+  <% @reviews.each do |review| %>
+    <p><%= review.title %></p>
+    <p><%= review.content %></p>
+    <p><%= User.find(review.user_id).first_name %> <%= User.find(review.user_id).last_name %></p>
+  <% end %>
+
+  <h2>Add New Review</h2>
+  <% if current_user %>
+    <%= form_for([@restaurant, @review], :html => {:class => 'review'}) do |f| %>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+      <%= f.label :content %>
+      <%= f.text_area :content %>
+      <%= f.button 'Add Review', :class => 'btn btn-login' %>
+    <% end %>
   <% end %>
 </div>

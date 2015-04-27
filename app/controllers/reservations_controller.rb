@@ -15,7 +15,7 @@ class ReservationsController < ApplicationController
     if @reservation.save
       redirect_to restaurant_url(@restaurant), :notice => 'Reservation Successfully Made'
     else
-      render 'restaurants/show', :alert => 'Reservation not available for the number requested.'
+      redirect_to restaurant_url(@restaurant), :alert => 'Reservation not available for the number requested.'
     end
   end
 

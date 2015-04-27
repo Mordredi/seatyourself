@@ -10,7 +10,9 @@ class Restaurant < ActiveRecord::Base
     (open...close).to_a
   end
 
-  def available?(num_of_seats)
+  def available?(num_of_seats, time, date)
+    reservations_for_time = reservations.where(time: time, date: date)
+    reservations_for_time.sum(:num_of_seats) + num_of_seats <= seats
   end
 
 end

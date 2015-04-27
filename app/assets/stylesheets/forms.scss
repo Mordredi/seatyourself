@@ -84,3 +84,10 @@ label.reserve {
 input[type=radio]:checked + label.reserve {
   background: $dark-primary-color;
 }
+
+.review {
+  background: none;
+  box-shadow: none;
+  margin: 10px;
+  padding: 0;
+}
