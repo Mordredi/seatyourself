@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to user_url(user)
+      redirect_to user_url(user), :notice => 'Successfully logged in'
     else
       render 'new'
     end

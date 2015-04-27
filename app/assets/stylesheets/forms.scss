@@ -21,7 +21,19 @@ form {
     color: #777;
     &:focus, &:active {
       outline: none;
-    }
+    };
+  };
+  textarea {
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.5em;
+    color: #777;
+    height: 40vh;
+    width: 30vw;
+    &:focus, &:active {
+      outline: none;
+    };
   }
 }
 

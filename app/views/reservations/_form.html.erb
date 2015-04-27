@@ -1,0 +1,19 @@
+<% if current_user %>
+  <%= form_for([@restaurant, @reservation], :html => {:class => 'reservation', :id => 'reservation'}) do |f| %>
+    <%= f.label :num_of_seats %>
+    <%= f.number_field :num_of_seats %>
+    <%= f.label :date %>
+    <%= f.date_field :date %>
+    <div class="times">
+      <% @restaurant.open_hours.each do |h| %>
+        <%= f.radio_button(:time, h, class: "hidden") %>
+        <%= f.label "time_#{h}", 
+          m_to_st(h), 
+        class: "reserve" %>
+      <% end %>
+    </div>
+    <%= f.button "Reserve Now", :class => 'btn btn-cta' %>
+  <% end %>
+<% else %>
+  <%= link_to "Login to Make a Reservation", login_path, :class => 'btn btn-cta' %>
+<% end %>

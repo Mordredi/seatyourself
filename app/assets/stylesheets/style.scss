@@ -7,7 +7,6 @@
 @import 'users.scss';
 @import 'restaurants.scss';
 
-
 body {
   line-height: 1.5;
   background: $background-color;
@@ -41,4 +40,18 @@ main {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+}
+
+.flash {
+  color: white;
+  width: 30vw;
+  height: 10vh;
+}
+
+.flash-notice {
+  background: green;
+}
+
+.flash-error {
+  background: red;
 }

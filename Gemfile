@@ -43,5 +43,6 @@ group :development, :test do
   gem 'spring'
   gem 'favorite_things'
   gem 'better_errors'
+  gem 'factory_girl_rails'
 end
 

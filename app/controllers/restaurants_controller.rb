@@ -1,6 +1,6 @@
 class RestaurantsController < ApplicationController
 
-  before_filter :restaurant_owner, :only => [:edit, :update, :delete]
+  before_filter :restaurant_owner, :only => [:edit, :update, :destroy]
 
   def index
     @restaurants = Restaurant.all
